@@ -1,9 +1,10 @@
 plugins {
     id("java")
+    id("maven-publish")
 }
 
 group = "ru.hogoshi"
-version = "1.0-SNAPSHOT"
+version = "4.0"
 
 repositories {
     mavenCentral()
@@ -16,4 +17,18 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "ru.hogoshi"
+            artifactId = "Animation"
+            version = "4.0"
+
+            afterEvaluate {
+                from(components["java"])
+            }
+        }
+    }
 }
