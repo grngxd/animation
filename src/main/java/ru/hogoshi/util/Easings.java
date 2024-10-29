@@ -8,6 +8,15 @@
 /*     */   public static final double c4 = 2.0943951023931953D;
 /*     */   public static final double c5 = 1.3962634015954636D;
 /*     */   public static final Easing NONE;
+
+/*     */   public static final Easing EXPO_IN; public static final Easing EXPO_OUT;
+/*     */   public static final Easing EXPO_BOTH;
+/*     */   public static final Easing BACK_IN;
+/*     */   public static final Easing BACK_OUT;
+/*     */   public static final Easing BACK_BOTH;
+/*     */   public static final Easing BOUNCE_OUT;
+/*     */   public static final Easing BOUNCE_IN;
+/*     */   public static final Easing BOUNCE_BOTH;
 /*     */   
 /*     */   static {
 /*  13 */     NONE = (value -> value);
@@ -112,14 +121,6 @@
 /* 112 */     BOUNCE_IN = (value -> 1.0D - BOUNCE_OUT.ease(1.0D - value));
 /* 113 */     BOUNCE_BOTH = (value -> (value < 0.5D) ? ((1.0D - BOUNCE_OUT.ease(1.0D - 2.0D * value)) / 2.0D) : ((1.0D + BOUNCE_OUT.ease(2.0D * value - 1.0D)) / 2.0D));
 /*     */   }
-/*     */   public static final Easing EXPO_IN; public static final Easing EXPO_OUT;
-/*     */   public static final Easing EXPO_BOTH;
-/*     */   public static final Easing BACK_IN;
-/*     */   public static final Easing BACK_OUT;
-/*     */   public static final Easing BACK_BOTH;
-/*     */   public static final Easing BOUNCE_OUT;
-/*     */   public static final Easing BOUNCE_IN;
-/*     */   public static final Easing BOUNCE_BOTH;
 /*     */   
 /*     */   public static Easing powIn(double n) {
 /* 125 */     return value -> Math.pow(value, n);
